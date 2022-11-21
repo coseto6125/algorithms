@@ -2,7 +2,8 @@
 # @Author: E-NoR
 # @Date:   2022-11-22 02:19:58
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2022-11-22 03:46:37
+# @Last Modified time: 2022-11-22 03:57:07
+from copy import deepcopy
 import itertools
 import random
 from collections import Counter, defaultdict
@@ -13,7 +14,7 @@ n = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13']  # 數
 cards = []  # 用來記錄 52 張牌
 for i in itertools.product(c, n):  # 用花色與數字組合出 4x13=52 張牌
     cards.append(''.join(i))
-
+cards[0:37:4]
 
 def func(deck):
     pass
@@ -32,7 +33,8 @@ while True:
         rs[i[0]].append(i)
     '''
 
-    def kas(a):
+    def kas(x):
+        a = deepcopy(x)
         a.sort(key=lambda x: int(x[1:]))
         colorP = lambda x: [f'{o}{x[1]}' for o in ('♠', '♥', '♣', '♦')]
         preDeck = []
