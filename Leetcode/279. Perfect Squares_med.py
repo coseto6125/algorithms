@@ -2,7 +2,7 @@
 # @Author: E-NoR
 # @Date:   2022-11-23 01:58:15
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2022-11-23 02:48:12
+# @Last Modified time: 2022-12-04 03:47:08
 # @url: https://leetcode.com/problems/perfect-squares/submissions/
 
 class Solution:
@@ -14,6 +14,4 @@ class Solution:
                 return 2
         while not n & 0b11: #n % 4 == 0
             n >>= 2
-        if (n & 0b111) == 0b111: #n % 8 == 7
-            return 4
-        return 3
+        return 4 if (n & 0b111) == 0b111 else 3

@@ -2,7 +2,7 @@
 # @Author: E-NoR
 # @Date:   2022-11-21 22:51:39
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2022-11-21 23:03:04
+# @Last Modified time: 2022-12-04 03:47:57
 # @url: https://leetcode.com/problems/multiply-strings/
 class Solution:
     def multiply(self, num1: str, num2: str) -> str:
@@ -14,5 +14,5 @@ class Solution:
                 res+=dic[v]*(10**i)
             return res
         return str(func(num1)*func(num2))
-        return str(int(num1)*int(num2)) # anti-rule
+        # return str(int(num1)*int(num2)) # anti-rule
 Solution().multiply('123','456')

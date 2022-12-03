@@ -2,7 +2,7 @@
 # @Author: E-NoR
 # @Date:   2022-11-21 01:15:43
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2022-11-21 01:16:22
+# @Last Modified time: 2022-12-04 03:48:46
 from typing import List
 
 
@@ -13,12 +13,12 @@ class Solution:
         v = [-1]*n
         for i in range(n):
             cur = i
-            next = -1
+            next_n = -1
             for j in range(m):
-                next = cur+grid[j][cur]
-                if(next<0 or next >=n or grid[j][cur]!=grid[j][next]):
+                next_n = cur+grid[j][cur]
+                if(next_n<0 or next_n >=n or grid[j][cur]!=grid[j][next_n]):
                     cur = -1
                     break
-                cur = next
+                cur = next_n
             v[i]=cur
         return v

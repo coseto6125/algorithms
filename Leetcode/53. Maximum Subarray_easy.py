@@ -2,7 +2,7 @@
 # @Author: E-NoR
 # @Date:   2022-11-21 01:45:49
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2022-11-21 01:46:27
+# @Last Modified time: 2022-12-04 03:49:18
 # @url: https://leetcode.com/problems/maximum-subarray/description/
 from typing import List
 class Solution:
@@ -11,5 +11,5 @@ class Solution:
         for i in nums:
             x += i
             if x > total: total = x
-            if x < 0: x = 0
+            x = max(x, 0)
         return total
