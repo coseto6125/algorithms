@@ -59,9 +59,7 @@ def sortedSum2(a):
     """
     M = 10**9 + 7
     p = len(a)+1
-    res = 0
-    for i in range(1,p):
-        res += sum(map(mul,sorted(a[:i]),range(1,i+1)))
+    res = sum(sum(map(mul,sorted(a[:i]),range(1,i+1))) for i in range(1,p))
     return res%M
 
 @timeit_choice
@@ -69,9 +67,7 @@ def sortedSum(a):
     """
     chosee bestway
     """
-    if len(a)<1780:
-        return sortedSum2(a)
-    return sortedSum1(a)
+    return sortedSum2(a) if len(a)<1780 else sortedSum1(a)
 
 if __name__ == '__main__':
     a_count = 14
