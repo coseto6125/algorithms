@@ -17,14 +17,13 @@ def find_path(maze,pos,end):
         print(pos,end=" ")  #已到達出口，輸出這個位置。成功結束
         path.append(pos)
         return True
-    for i in range(4):      #否則按四個方向順序檢查
+    for i in range(4):  #否則按四個方向順序檢查
         nextp=pos[0]+dirs[i][0],pos[1]+dirs[i][1]
         #考慮下一個可能方向
-        if passable(maze,nextp):        #不可行的相鄰位置不管
-            if find_path(maze,nextp,end):#如果從nextp可達出口，輸出這個位置，成功結束
-                print(pos,end=" ")
-                path.append(pos)
-                return True
+        if passable(maze, nextp) and find_path(maze, nextp, end):
+            print(pos,end=" ")
+            path.append(pos)
+            return True
     return False
 
 def see_path(maze,path):     #使尋找到的路徑可視化
@@ -40,7 +39,7 @@ def see_path(maze,path):     #使尋找到的路徑可視化
         for c in r:
             if c==3:
                 print('\033[0;31m'+"*"+" "+'\033[0m',end="")
-            elif c=="S" or c=="E":
+            elif c in ["S", "E"]:
                 print('\033[0;34m'+c+" " + '\033[0m', end="")
             elif c==2:
                 print('\033[0;32m'+"#"+" "+'\033[0m',end="")

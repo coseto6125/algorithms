@@ -11,10 +11,8 @@ from bisect import insort
 
 c = ['♥', '♠', '♣', '♦']  # 花色
 n = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13']  # 數字
-cards = []  # 用來記錄 52 張牌
-for i in itertools.product(c, n):  # 用花色與數字組合出 4x13=52 張牌
-    cards.append(''.join(i))
-cards[0:37:4]
+cards = [''.join(i) for i in itertools.product(c, n)]
+cards[:37:4]
 
 def func(deck):
     pass
@@ -50,8 +48,7 @@ while True:
                 continue
             elif ls > 1:
                 for k, t in enumerate(preDeck):
-                    q = next((t.index(j) for j in t if j[1:] == i[1]), None)
-                    if q:
+                    if q := next((t.index(j) for j in t if j[1:] == i[1]), None):
                         a1, a2 = t[:q], t[q + 1:]
                         if len(a1) > 2 < len(a2):
                             temp.append(t[q])
